@@ -1,0 +1,912 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Python"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Python语言是一种解释型、面向对象、动态数据类型的高级程序设计语言,如今已成为绝大部分数据分析师的首选数据分析语言。其设计的核心理念是代码的易读性，以及允许编程者通过若干行代码轻松表达想法创意。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 版本\n",
+    "\n",
+    "本教程所有代码采用 Python3.6 进行编写，在 Python 可通过以下命令查看版本："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:00.872535Z",
+     "start_time": "2019-05-22T10:22:00.854240Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'3.7.1 | packaged by conda-forge | (default, Feb 26 2019, 04:48:14) \\n[GCC 7.3.0]'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import sys\n",
+    "sys.version"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "在 Jupyter Notebook 中通过`!python --version`命令查看版本。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:01.111172Z",
+     "start_time": "2019-05-22T10:22:00.997877Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python 3.7.1\r\n"
+     ]
+    }
+   ],
+   "source": [
+    "!python --version"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 语法\n",
+    "\n",
+    "#### 缩进\n",
+    "\n",
+    "锁紧是表达代码间包含和层次关系的唯一手段，在 Python 中通过 4 个空格或 1 个 TAB 键来表示。\n",
+    "\n",
+    "#### 注释\n",
+    "注释是不被程序执行的辅助性说明信息。在 Python 中单注释分为单行和多行，单行注释以`#`开头，其后内容为注释；多行注释以`'''`开头和结尾，中间内容为注释。\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:01.136859Z",
+     "start_time": "2019-05-22T10:22:01.131222Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "注释\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 这是一个单行注释\n",
+    "\n",
+    "'''\n",
+    "这是一个多行注释\n",
+    "这是一个多行注释\n",
+    "'''\n",
+    "print('注释')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 变量\n",
+    "\n",
+    "变量是用来保存和表示数据的占位符号。在 Python 中通过等号`=`用向变量赋值或修改值。\n",
+    "变量名是大小写字母、数字、下划线`_`和汉字等字符的组合，对大小写敏感，首字母不能是数字，也不能与保留字相同。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:01.292298Z",
+     "start_time": "2019-05-22T10:22:01.287576Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x = 1\n",
+      "x = 2\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 向变量x赋值为1\n",
+    "x = 1\n",
+    "print('x =',x)\n",
+    "\n",
+    "# 修改变量x的赋值为2\n",
+    "x = 2\n",
+    "print('x =',x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 保留字\n",
+    "\n",
+    "保留字是被编程语言内部定义并保留使用的标识符。在 Python 中有 33 个保留字，保留字是编程语言的基本单词，对大小写敏感。\n",
+    "\n",
+    "|||||||\n",
+    "|:-:|:-:|:-:|:-:|:-:|:-:|\n",
+    "|and|  as  | assert | break | class | continue |\n",
+    "| def  | elif | else | except | finally | for |\n",
+    "| from | if | import | in | is | lambda |\n",
+    "| not | or | pass | raise | return | try |\n",
+    "| while | with | yield | del | global | nonlocal |\n",
+    "| True | False | None ||||"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 操作符\n",
+    "\n",
+    "操作符是完成运算的一种符号体系\n",
+    "\n",
+    "#### 运算操作符\n",
+    "\n",
+    "|操作符|描述|\n",
+    "|:-:|:-|\n",
+    "|x + y|加法运算|\n",
+    "|x - y|减法运算|\n",
+    "|x * y|乘法运算|\n",
+    "|x / y|除法运算|\n",
+    "|x // y|整除运算|\n",
+    "|x % y|取模(余数)运算\n",
+    "|`-` y|负数运算|\n",
+    "|x ** y|幂运算，y 为小数时为开方运算|\n",
+    "\n",
+    "#### 赋值操作符\n",
+    "\n",
+    "|操作符|描述|\n",
+    "|:-:|:-|\n",
+    "|x += y|即 x = x + y|\n",
+    "|x -= y|即 x = x - y|\n",
+    "|x *= y|即 x = x * y|\n",
+    "|x /= y|即 x = x / y|\n",
+    "|x //= y|即 x = x // y|\n",
+    "|x %= y|即 x = x % y|\n",
+    "|x **= y|即 x = x ** y|\n",
+    "\n",
+    "#### 比较运算符\n",
+    "\n",
+    "比较运算结果为 True 或 False。\n",
+    "\n",
+    "|操作符|描述|\n",
+    "|:-:|:-|\n",
+    "|==|等于|\n",
+    "|！=|不等于|\n",
+    "|<>|不等于，与 ！= 类似|\n",
+    "|>|大与|\n",
+    "|<|小于|\n",
+    "|>+|大于等于|\n",
+    "|<=|小于等于|"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 数据类型\n",
+    "\n",
+    "数据类型是供计算机程序理解的数据形式，在 Python 中数据类型被分为基本数据类型和复合数据类型。\n",
+    "\n",
+    "- 基本数据类型：包括整数、浮点数、复数、布尔数值和空值。\n",
+    "- 复合数据类型：包括字符串、列表、元组、字典和集合。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 整数 （int）\n",
+    "\n",
+    "Python 中的整数与数学中整数的概念一致，可正可负，没有取值范围限制，在 Python 中有 4 种表达形式。\n",
+    "\n",
+    "|表达形式|格式|\n",
+    "|:-:|:-|\n",
+    "|十进制|-100,0,100|\n",
+    "|二进制|以0b或0B开头：0b01,-0B01|\n",
+    "|八进制|以0o或0O开头：0o17,-0O17|\n",
+    "|十六进制|以0x或0X开头：0x0f, -0X0f|\n",
+    "\n",
+    "整数虽然有 4 种表达形式，但输出格式都是十进制。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:01.786777Z",
+     "start_time": "2019-05-22T10:22:01.775885Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "二进制数 0b01 的输出格式是： 1\n",
+      "八进制数 0o17 的输出格式是： 15\n",
+      "十六进制数 0x0f 的输出格式是： 15\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"二进制数 0b01 的输出格式是：\",0b01)\n",
+    "print(\"八进制数 0o17 的输出格式是：\",0o17)\n",
+    "print(\"十六进制数 0x0f 的输出格式是：\",0x0f)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 浮点数（float）\n",
+    "\n",
+    "Python 中的浮点数与数学中实数的概念一致，指带有小数点及小数的数字。浮点数取值范围和小数精度都存在限制，但常规计算可忽略。取值范围数量级约$-10^{308}$至$10^{308}$，精度数量级$10^{16}$。\n",
+    "\n",
+    "在 Python 中浮点数有两种表达形式：一种用小数点+数字形式表示；一种用科学计数法表示，使用字母e或E作为幂的符号，以10为基数，$<a>e<b>$表示$a*10^b$\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:01.943749Z",
+     "start_time": "2019-05-22T10:22:01.937617Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "浮点数 110e-3 值为： 0.11\n",
+      "浮点数 5.2E2 值为： 520.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('浮点数 110e-3 值为：',110e-3)\n",
+    "print('浮点数 5.2E2 值为：',5.2E2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 复数（plural）\n",
+    "\n",
+    "Python 中的复数与数学中复数的概念一致，记 a+b*j 为复数，其中 a 是实部，b 是虚部。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:02.069322Z",
+     "start_time": "2019-05-22T10:22:02.064670Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "复数 1 + 2j 的实部是： 1.0\n",
+      "复数 1 + 2j 的虚部是： 2.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = 1 + 2j\n",
+    "print('复数 1 + 2j 的实部是：', x.real)\n",
+    "print('复数 1 + 2j 的虚部是：', x.imag)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 布尔数值（bool）\n",
+    "\n",
+    "Python 中的布尔数值与数学中布尔代数的概念一致，分为`True`和`False`。利用布尔数值可进行逻辑运算。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:02.187462Z",
+     "start_time": "2019-05-22T10:22:02.184035Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "x = True\n",
+    "y = False"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 空值（None）\n",
+    "\n",
+    "空值是 Python 中一种特殊的数据类型，用 `None`表示。`None`表示一个空对象，不能理解为`0`。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:02.340795Z",
+     "start_time": "2019-05-22T10:22:02.335019Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = None\n",
+    "x == 0"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 序列（sequence）\n",
+    "\n",
+    "序列是具有先后关系的一组元素，各元素类型可以不同。元素间通过序号引导，通过下标访问序列的特定元素。字符串、列表和元组类型都属于序列类型。\n",
+    "\n",
+    "序号分为两种：正向递增序号和正向递减序号，对应关系如下表：\n",
+    "\n",
+    "|||||||\n",
+    "|:-:|:-:|:-:|:-:|:-:|:-:|\n",
+    "| 正向递增序号 | 0 | 1 | 2 | ...| n-1 |\n",
+    "| 序列 | 1 | 2 | 3 | ... | n |\n",
+    "| 反向递减序号 | -n | -n+1 | -n+2 | ... | -1 |\n",
+    "\n",
+    "利用序号可以对序列进行索引和切片操作：\n",
+    "\n",
+    "- 索引指通过序号选取序列中特定元素的操作，通过`sequence[index]`使用；\n",
+    "\n",
+    "- 切片指从序列获取多个元素的操作，通过`sequence[start_index:end_index:step]`使用，`start_index`表示开始索引位置，默认为`0`：`end_index`表示结束索引位置，默认为`n-1`：`step`表示步长，默认为`1`。切片操作前闭后开，不包括`sequence[end_index]`。\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:02.466018Z",
+     "start_time": "2019-05-22T10:22:02.453408Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x[1] =  2\n",
+      "x[-1] = 5\n",
+      "x[1:4:2] = [2, 4]\n",
+      "x[::-1] = [5, 4, 3, 2, 1]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = [1, 2, 3, 4, 5]\n",
+    "\n",
+    "print('x[1] = ',x[1])\n",
+    "print('x[-1] =',x[-1])\n",
+    "print('x[1:4:2] =',x[1:4:2])\n",
+    "print('x[::-1] =',x[::-1])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "字符串、列表和元组类型作为序列的子类，都拥有序列的通用函数和方法：\n",
+    "\n",
+    "| 函数和方法 | 描述 |\n",
+    "|:-:|:-|\n",
+    "| len(x) | 返回序列 x 的长度 |\n",
+    "| min(x) | 返回序列 x 的最小元素 |\n",
+    "| max(x) | 返回序列 x 的最大元素 |\n",
+    "| x.index(a)或x.index(a,i,j) | 返回序列 x 从 i 开始到 j 位置中第一次出现元素 a 的位置 |\n",
+    "| x.count(a) | 返回序列 x 中出现元素 a 的总次数 |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 字符串\n",
+    "\n",
+    "字符串是由 0 个或多个字符组成的有序字符序列，由一对单引号`''`或一对双引号`\"\"`表示。\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:02.687855Z",
+     "start_time": "2019-05-22T10:22:02.679062Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "我是一个字符串\n",
+      "我是另一个字符串\n",
+      "'我还是一个字符串'\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('我是一个字符串')\n",
+    "print(\"我是另一个字符串\")\n",
+    "print(\"'我还是一个字符串'\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "如果现在字符串中输入一个单引号`'`或双引号`\"`，需要通过转义符`\\`表达"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:02.799846Z",
+     "start_time": "2019-05-22T10:22:02.796576Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "这是一个单引号（'）\n",
+      "这是一个双引号（\"）\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('这是一个单引号（\\'）')\n",
+    "print('这是一个双引号（\\\"）')\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "转义符和字母进行组合可以表达出一些字符串无法表达的含义\n",
+    "\n",
+    "- `\\b`: 后退\n",
+    "- `\\n`: 换行，即光标移动到下行行首\n",
+    "- `\\r`: 回车，即贯标移动到本行行首\n",
+    "\n",
+    "字符串继承序列类型的函数和方法，但也具有独有的函数和方法：\n",
+    "\n",
+    "| 函数和方法 | 描述 |\n",
+    "|:-:|:-|\n",
+    "| str(x) | 返回任意类型`x`所对应的字符串类型，如`str(123) = \"123\"` |\n",
+    "| hex(x) 或 oct(x) | 返回整数`x`的十六进制或八进制小写形式字符串，如`hex(425) = \"0x1a9\"` |\n",
+    "| chr(x) | 返回 Unicode 编码`x`对应的字符，如`chr(1000) = 'Ϩ'` |\n",
+    "| ord(x) | 返回字符`x`对应的 Unicode 编码，如`ord('Ϩ') = 1000` |\n",
+    "| str.lower() 或 str.upper() | 返回字符串的副本，全部字符小写/大写,如 `'AbCd'.lower() = 'abcd'`|\n",
+    "| str.split(sep=None) | 返回一个列表，由`str`根据`sep`被分隔的部分组，如`'a,b,c'.split(',') = ['a','b','c']` |\n",
+    "| str.count(sub) | 返回子串`sub`在`str`中出现的次数，如`'abca'.count('a') = 2` |\n",
+    "| str.replace(old, new) | 返回字符串`str`副本，所有`old`子串被替换为`new`，如`'abc'.replace('a', 'ab') = 'abbc'` |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 列表（list）\n",
+    "\n",
+    "列表是一种序列类型，创建后可以随意被修改。使用方括号`[]`或`list()`创建，元素间用逗号`,`分隔。列表中各元素类型可以不同，无长度限制。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:03.029591Z",
+     "start_time": "2019-05-22T10:22:03.025211Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['abc', 123]\n",
+      "['1', '2', '3']\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = ['abc', 123]\n",
+    "print(x)\n",
+    "\n",
+    "y = list('123')\n",
+    "print(y)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "列表继承序列类型的函数和方法，但也具有独有的函数和方法：\n",
+    "\n",
+    "| 函数和方法 | 描述 |\n",
+    "| :-: | :- |\n",
+    "| list.append(x) | 在`list`最后增加一个元素`x` |\n",
+    "| list.clear() | 删除`list`中所有元素 |\n",
+    "| list.copy() | 复制`list`，并生成一个新列表 |\n",
+    "| list.inerst(i,x) | 在`list`的第`i`位置增加元素`x` |\n",
+    "| list.pop(i) | 返回`list`中第`i`位置元素，并在`list`中删除该元素 |\n",
+    "| list.remove(x) | 删除`list`出现的第一个元素`x` |\n",
+    "| list.reverse() | 颠倒`list` |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 元组（tuple）\n",
+    "\n",
+    "元组是一种序列类型，一旦创建就不能被修。使用小括号`()`或`tuple()`创建，元素间用逗号`,`分隔。可以使用或不使用小括号"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:03.246949Z",
+     "start_time": "2019-05-22T10:22:03.242108Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "('abc', 123)"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = 'abc',123\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "元组继承了序列类型的全部通用操作，因为创建后不能修改，因此没有特殊操作。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 字典（dict）\n",
+    "\n",
+    "字典是一种储存键值对的数据类型，键值对之间无序。通过大括号`{}`和`dict()`创建，键值对用冒号`:`表示。在字典变量中，通过键获得值。\n",
+    "\n",
+    "键（keys）可以看做索引的扩展，值（values）储存数据。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:03.519334Z",
+     "start_time": "2019-05-22T10:22:03.514709Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x = {'a': 1, 'b': 2}\n",
+      "x['a'] = 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = {'a':1, 'b':2}\n",
+    "print('x =',x)\n",
+    "print(\"x['a'] =\",x['a'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "字典类型操作函数和方法\n",
+    "\n",
+    "| 函数和方法 | 描述 |\n",
+    "| :-: | :- |\n",
+    "| dict.keys() | 返回`dict`中所有键信息 |\n",
+    "| dict.values() | 返回`dict`中所有值信息 |\n",
+    "| dict.items() | 返回`dict`中所有键值对信息 |\n",
+    "| dict.get(k, x) | 若键`k`存在，则返回对应的值，否则返回`x`值 |\n",
+    "| dict.pop(k, x) | 若键`k`存在，则取出对应的值，否则返回`x`值 |\n",
+    "| dict.popitem() | 从`dict`随机取出一个键值对，以元组形式返回 |\n",
+    "| dict.clear() | 删除`dict`所有键值对 |\n",
+    "| len(dict) | 返回`dice`中元素个数 |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 集合（set）\n",
+    "\n",
+    "Python 的集合类型与数学中的集合概念一致，是多个元素的无序组合。元素与元素间无序，不存在相同元素。集合中的元素不可更改，不能使可变数据类型。\n",
+    "\n",
+    "集合通过大括号`{}`或`set()`创建，元素间用逗号`,`分割，创建空集合必须使用`set()`方法。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:03.736167Z",
+     "start_time": "2019-05-22T10:22:03.725892Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1, 10, 'a'}"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = {'a', 1, 10, 'a'}\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 函数"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 函数（function）\n",
+    "\n",
+    "函数是一段具有特定功能的、可重用的语句组，是一种功能的抽象。\n",
+    "\n",
+    "在 Python 中通过`def`构建函数，格式如下：\n",
+    "\n",
+    "```python\n",
+    "def <函数名>(<参数(0或多个)>):\n",
+    "    <函数体>\n",
+    "    return <返回值>\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-05-22T10:22:03.958041Z",
+     "start_time": "2019-05-22T10:22:03.948433Z"
+    },
+    "inputHidden": false,
+    "outputHidden": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "55"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 计算斐波那契数列\n",
+    "def f(n):\n",
+    "    if n==1:\n",
+    "        return 1\n",
+    "    elif n==2:\n",
+    "        return 1\n",
+    "    else:\n",
+    "        return f(n-1)+f(n-2)\n",
+    "\n",
+    "# 第10个斐波那契数\n",
+    "f(10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 参考资料\n",
+    "\n",
+    "* [Python 官方中文文档](https://docs.python.org/zh-cn/3/)\n",
+    "* [北京理工大学：Python语言程序设计](https://www.icourse163.org/course/BIT-268001?tid=1003243006)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernel_info": {
+   "name": "python3"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.1"
+  },
+  "nteract": {
+   "version": "0.12.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": true
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

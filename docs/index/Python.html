@@ -1,0 +1,1312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python &mdash; 线性代数基础教程  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://kunhuu.github.io/Basic-Linear-Algebra-Tutorial/index/Python.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="简介" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 线性代数基础教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">简介</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#版本">版本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#语法">语法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#缩进">缩进</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#注释">注释</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#变量">变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#保留字">保留字</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#操作符">操作符</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#运算操作符">运算操作符</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#赋值操作符">赋值操作符</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#比较运算符">比较运算符</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#数据类型">数据类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#整数-（int）">整数 （int）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#浮点数（float）">浮点数（float）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#复数（plural）">复数（plural）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#布尔数值（bool）">布尔数值（bool）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#空值（None）">空值（None）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#序列（sequence）">序列（sequence）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#字符串">字符串</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#列表（list）">列表（list）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#元组（tuple）">元组（tuple）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#字典（dict）">字典（dict）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#集合（set）">集合（set）</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#函数">函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#函数（function）">函数（function）</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#参考资料">参考资料</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">线性代数基础教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">简介</a> &raquo;</li>
+        
+      <li>Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/index/Python.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Python">
+<h1>Python<a class="headerlink" href="#Python" title="永久链接至标题">¶</a></h1>
+<p>Python语言是一种解释型、面向对象、动态数据类型的高级程序设计语言,如今已成为绝大部分数据分析师的首选数据分析语言。其设计的核心理念是代码的易读性，以及允许编程者通过若干行代码轻松表达想法创意。</p>
+<div class="section" id="版本">
+<h2>版本<a class="headerlink" href="#版本" title="永久链接至标题">¶</a></h2>
+<p>本教程所有代码采用 Python3.6 进行编写，在 Python 可通过以下命令查看版本：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&#39;3.7.1 | packaged by conda-forge | (default, Feb 26 2019, 04:48:14) \n[GCC 7.3.0]&#39;
+</pre></div>
+</div>
+</div>
+<p>在 Jupyter Notebook 中通过<code class="docutils literal notranslate"><span class="pre">!python</span> <span class="pre">--version</span></code>命令查看版本。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>python --version
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python 3.7.1
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="语法">
+<h2>语法<a class="headerlink" href="#语法" title="永久链接至标题">¶</a></h2>
+<div class="section" id="缩进">
+<h3>缩进<a class="headerlink" href="#缩进" title="永久链接至标题">¶</a></h3>
+<p>锁紧是表达代码间包含和层次关系的唯一手段，在 Python 中通过 4 个空格或 1 个 TAB 键来表示。</p>
+</div>
+<div class="section" id="注释">
+<h3>注释<a class="headerlink" href="#注释" title="永久链接至标题">¶</a></h3>
+<p>注释是不被程序执行的辅助性说明信息。在 Python 中单注释分为单行和多行，单行注释以<code class="docutils literal notranslate"><span class="pre">#</span></code>开头，其后内容为注释；多行注释以<code class="docutils literal notranslate"><span class="pre">'''</span></code>开头和结尾，中间内容为注释。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 这是一个单行注释</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">这是一个多行注释</span>
+<span class="sd">这是一个多行注释</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;注释&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+注释
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="变量">
+<h3>变量<a class="headerlink" href="#变量" title="永久链接至标题">¶</a></h3>
+<p>变量是用来保存和表示数据的占位符号。在 Python 中通过等号<code class="docutils literal notranslate"><span class="pre">=</span></code>用向变量赋值或修改值。 变量名是大小写字母、数字、下划线<code class="docutils literal notranslate"><span class="pre">_</span></code>和汉字等字符的组合，对大小写敏感，首字母不能是数字，也不能与保留字相同。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 向变量x赋值为1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x =&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># 修改变量x的赋值为2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x =&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x = 1
+x = 2
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="保留字">
+<h3>保留字<a class="headerlink" href="#保留字" title="永久链接至标题">¶</a></h3>
+<p>保留字是被编程语言内部定义并保留使用的标识符。在 Python 中有 33 个保留字，保留字是编程语言的基本单词，对大小写敏感。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 19%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>and</p></td>
+<td><p>as</p></td>
+<td><p>assert</p></td>
+<td><p>break</p></td>
+<td><p>class</p></td>
+<td><p>continue</p></td>
+</tr>
+<tr class="row-even"><td><p>def</p></td>
+<td><p>elif</p></td>
+<td><p>else</p></td>
+<td><p>except</p></td>
+<td><p>finally</p></td>
+<td><p>for</p></td>
+</tr>
+<tr class="row-odd"><td><p>from</p></td>
+<td><p>if</p></td>
+<td><p>import</p></td>
+<td><p>in</p></td>
+<td><p>is</p></td>
+<td><p>lambda</p></td>
+</tr>
+<tr class="row-even"><td><p>not</p></td>
+<td><p>or</p></td>
+<td><p>pass</p></td>
+<td><p>raise</p></td>
+<td><p>return</p></td>
+<td><p>try</p></td>
+</tr>
+<tr class="row-odd"><td><p>while</p></td>
+<td><p>with</p></td>
+<td><p>yield</p></td>
+<td><p>del</p></td>
+<td><p>global</p></td>
+<td><p>nonlocal</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>None</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="操作符">
+<h2>操作符<a class="headerlink" href="#操作符" title="永久链接至标题">¶</a></h2>
+<p>操作符是完成运算的一种符号体系</p>
+<div class="section" id="运算操作符">
+<h3>运算操作符<a class="headerlink" href="#运算操作符" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>操作符</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x + y</p></td>
+<td><p>加法运算</p></td>
+</tr>
+<tr class="row-odd"><td><p>x - y</p></td>
+<td><p>减法运算</p></td>
+</tr>
+<tr class="row-even"><td><p>x * y</p></td>
+<td><p>乘法运算</p></td>
+</tr>
+<tr class="row-odd"><td><p>x / y</p></td>
+<td><p>除法运算</p></td>
+</tr>
+<tr class="row-even"><td><p>x // y</p></td>
+<td><p>整除运算</p></td>
+</tr>
+<tr class="row-odd"><td><p>x % y</p></td>
+<td><p>取模(余数)运算</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code> y</p></td>
+<td><p>负数运算</p></td>
+</tr>
+<tr class="row-odd"><td><p>x ** y</p></td>
+<td><p>幂运算，y 为小数时为开方运算</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="赋值操作符">
+<h3>赋值操作符<a class="headerlink" href="#赋值操作符" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>操作符</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x += y</p></td>
+<td><p>即 x = x + y</p></td>
+</tr>
+<tr class="row-odd"><td><p>x -= y</p></td>
+<td><p>即 x = x - y</p></td>
+</tr>
+<tr class="row-even"><td><p>x *= y</p></td>
+<td><p>即 x = x * y</p></td>
+</tr>
+<tr class="row-odd"><td><p>x /= y</p></td>
+<td><p>即 x = x / y</p></td>
+</tr>
+<tr class="row-even"><td><p>x //= y</p></td>
+<td><p>即 x = x // y</p></td>
+</tr>
+<tr class="row-odd"><td><p>x %= y</p></td>
+<td><p>即 x = x % y</p></td>
+</tr>
+<tr class="row-even"><td><p>x **= y</p></td>
+<td><p>即 x = x ** y</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="比较运算符">
+<h3>比较运算符<a class="headerlink" href="#比较运算符" title="永久链接至标题">¶</a></h3>
+<p>比较运算结果为 True 或 False。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>操作符</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>==</p></td>
+<td><p>等于</p></td>
+</tr>
+<tr class="row-odd"><td><p>！=</p></td>
+<td><p>不等于</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;&gt;</p></td>
+<td><p>不等于，与 ！= 类似</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt;</p></td>
+<td><p>大与</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;</p></td>
+<td><p>小于</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt;+</p></td>
+<td><p>大于等于</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;=</p></td>
+<td><p>小于等于</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="数据类型">
+<h2>数据类型<a class="headerlink" href="#数据类型" title="永久链接至标题">¶</a></h2>
+<p>数据类型是供计算机程序理解的数据形式，在 Python 中数据类型被分为基本数据类型和复合数据类型。</p>
+<ul class="simple">
+<li><p>基本数据类型：包括整数、浮点数、复数、布尔数值和空值。</p></li>
+<li><p>复合数据类型：包括字符串、列表、元组、字典和集合。</p></li>
+</ul>
+<div class="section" id="整数-（int）">
+<h3>整数 （int）<a class="headerlink" href="#整数-（int）" title="永久链接至标题">¶</a></h3>
+<p>Python 中的整数与数学中整数的概念一致，可正可负，没有取值范围限制，在 Python 中有 4 种表达形式。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>表达形式</p></th>
+<th class="head"><p>格式</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>十进制</p></td>
+<td><p>-100,0,100</p></td>
+</tr>
+<tr class="row-odd"><td><p>二进制</p></td>
+<td><p>以0b或0B开头：0b01,-0B01</p></td>
+</tr>
+<tr class="row-even"><td><p>八进制</p></td>
+<td><p>以0o或0O开头：0o17,-0O17</p></td>
+</tr>
+<tr class="row-odd"><td><p>十六进制</p></td>
+<td><p>以0x或0X开头：0x0f, -0X0f</p></td>
+</tr>
+</tbody>
+</table>
+<p>整数虽然有 4 种表达形式，但输出格式都是十进制。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;二进制数 0b01 的输出格式是：&quot;</span><span class="p">,</span><span class="mb">0b01</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;八进制数 0o17 的输出格式是：&quot;</span><span class="p">,</span><span class="mi">0</span><span class="n">o17</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;十六进制数 0x0f 的输出格式是：&quot;</span><span class="p">,</span><span class="mh">0x0f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+二进制数 0b01 的输出格式是： 1
+八进制数 0o17 的输出格式是： 15
+十六进制数 0x0f 的输出格式是： 15
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="浮点数（float）">
+<h3>浮点数（float）<a class="headerlink" href="#浮点数（float）" title="永久链接至标题">¶</a></h3>
+<p>Python 中的浮点数与数学中实数的概念一致，指带有小数点及小数的数字。浮点数取值范围和小数精度都存在限制，但常规计算可忽略。取值范围数量级约<span class="math notranslate nohighlight">\(-10^{308}\)</span>至<span class="math notranslate nohighlight">\(10^{308}\)</span>，精度数量级<span class="math notranslate nohighlight">\(10^{16}\)</span>。</p>
+<p>在 Python 中浮点数有两种表达形式：一种用小数点+数字形式表示；一种用科学计数法表示，使用字母e或E作为幂的符号，以10为基数，<span class="math notranslate nohighlight">\(&lt;a&gt;e&lt;b&gt;\)</span>表示<span class="math notranslate nohighlight">\(a*10^b\)</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;浮点数 110e-3 值为：&#39;</span><span class="p">,</span><span class="mf">110e-3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;浮点数 5.2E2 值为：&#39;</span><span class="p">,</span><span class="mf">5.2E2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+浮点数 110e-3 值为： 0.11
+浮点数 5.2E2 值为： 520.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="复数（plural）">
+<h3>复数（plural）<a class="headerlink" href="#复数（plural）" title="永久链接至标题">¶</a></h3>
+<p>Python 中的复数与数学中复数的概念一致，记 a+b*j 为复数，其中 a 是实部，b 是虚部。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2j</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;复数 1 + 2j 的实部是：&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;复数 1 + 2j 的虚部是：&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+复数 1 + 2j 的实部是： 1.0
+复数 1 + 2j 的虚部是： 2.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="布尔数值（bool）">
+<h3>布尔数值（bool）<a class="headerlink" href="#布尔数值（bool）" title="永久链接至标题">¶</a></h3>
+<p>Python 中的布尔数值与数学中布尔代数的概念一致，分为<code class="docutils literal notranslate"><span class="pre">True</span></code>和<code class="docutils literal notranslate"><span class="pre">False</span></code>。利用布尔数值可进行逻辑运算。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">y</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="空值（None）">
+<h3>空值（None）<a class="headerlink" href="#空值（None）" title="永久链接至标题">¶</a></h3>
+<p>空值是 Python 中一种特殊的数据类型，用 <code class="docutils literal notranslate"><span class="pre">None</span></code>表示。<code class="docutils literal notranslate"><span class="pre">None</span></code>表示一个空对象，不能理解为<code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">x</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="序列（sequence）">
+<h3>序列（sequence）<a class="headerlink" href="#序列（sequence）" title="永久链接至标题">¶</a></h3>
+<p>序列是具有先后关系的一组元素，各元素类型可以不同。元素间通过序号引导，通过下标访问序列的特定元素。字符串、列表和元组类型都属于序列类型。</p>
+<p>序号分为两种：正向递增序号和正向递减序号，对应关系如下表：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 8%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 4%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>正向递增序号</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>…</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-even"><td><p>序列</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>…</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-odd"><td><p>反向递减序号</p></td>
+<td><p>-n</p></td>
+<td><p>-n+1</p></td>
+<td><p>-n+2</p></td>
+<td><p>…</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+<p>利用序号可以对序列进行索引和切片操作：</p>
+<ul class="simple">
+<li><p>索引指通过序号选取序列中特定元素的操作，通过<code class="docutils literal notranslate"><span class="pre">sequence[index]</span></code>使用；</p></li>
+<li><p>切片指从序列获取多个元素的操作，通过<code class="docutils literal notranslate"><span class="pre">sequence[start_index:end_index:step]</span></code>使用，<code class="docutils literal notranslate"><span class="pre">start_index</span></code>表示开始索引位置，默认为<code class="docutils literal notranslate"><span class="pre">0</span></code>：<code class="docutils literal notranslate"><span class="pre">end_index</span></code>表示结束索引位置，默认为<code class="docutils literal notranslate"><span class="pre">n-1</span></code>：<code class="docutils literal notranslate"><span class="pre">step</span></code>表示步长，默认为<code class="docutils literal notranslate"><span class="pre">1</span></code>。切片操作前闭后开，不包括<code class="docutils literal notranslate"><span class="pre">sequence[end_index]</span></code>。</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x[1] = &#39;</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x[-1] =&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x[1:4:2] =&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x[::-1] =&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x[1] =  2
+x[-1] = 5
+x[1:4:2] = [2, 4]
+x[::-1] = [5, 4, 3, 2, 1]
+</pre></div></div>
+</div>
+<p>字符串、列表和元组类型作为序列的子类，都拥有序列的通用函数和方法：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数和方法</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>len(x)</p></td>
+<td><p>返回序列 x 的长度</p></td>
+</tr>
+<tr class="row-odd"><td><p>min(x)</p></td>
+<td><p>返回序列 x 的最小元素</p></td>
+</tr>
+<tr class="row-even"><td><p>max(x)</p></td>
+<td><p>返回序列 x 的最大元素</p></td>
+</tr>
+<tr class="row-odd"><td><p>x.index(a)或x.index(a,i,j)</p></td>
+<td><p>返回序列 x 从 i 开始到 j 位置中第一次出现元素 a 的位置</p></td>
+</tr>
+<tr class="row-even"><td><p>x.count(a)</p></td>
+<td><p>返回序列 x 中出现元素 a 的总次数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="字符串">
+<h3>字符串<a class="headerlink" href="#字符串" title="永久链接至标题">¶</a></h3>
+<p>字符串是由 0 个或多个字符组成的有序字符序列，由一对单引号<code class="docutils literal notranslate"><span class="pre">''</span></code>或一对双引号<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>表示。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;我是一个字符串&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;我是另一个字符串&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;&#39;我还是一个字符串&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+我是一个字符串
+我是另一个字符串
+&#39;我还是一个字符串&#39;
+</pre></div></div>
+</div>
+<p>如果现在字符串中输入一个单引号<code class="docutils literal notranslate"><span class="pre">'</span></code>或双引号<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>，需要通过转义符<code class="docutils literal notranslate"><span class="pre">\</span></code>表达</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;这是一个单引号（</span><span class="se">\&#39;</span><span class="s1">）&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;这是一个双引号（</span><span class="se">\&quot;</span><span class="s1">）&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+这是一个单引号（&#39;）
+这是一个双引号（&#34;）
+</pre></div></div>
+</div>
+<p>转义符和字母进行组合可以表达出一些字符串无法表达的含义</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\b</span></code>: 后退</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code>: 换行，即光标移动到下行行首</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\r</span></code>: 回车，即贯标移动到本行行首</p></li>
+</ul>
+<p>字符串继承序列类型的函数和方法，但也具有独有的函数和方法：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 60%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数和方法</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>str(x)</p></td>
+<td><p>返回任意类型<code class="docutils literal notranslate"><span class="pre">x</span></code>所对应的字符串类型，如<code class="docutils literal notranslate"><span class="pre">str(123)</span> <span class="pre">=</span> <span class="pre">&quot;123&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>hex(x) 或 oct(x)</p></td>
+<td><p>返回整数<code class="docutils literal notranslate"><span class="pre">x</span></code>的十六进制或八进制小写形式字符串，如<code class="docutils literal notranslate"><span class="pre">hex(425)</span> <span class="pre">=</span> <span class="pre">&quot;0x1a9&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>chr(x)</p></td>
+<td><p>返回 Unicode 编码<code class="docutils literal notranslate"><span class="pre">x</span></code>对应的字符，如<code class="docutils literal notranslate"><span class="pre">chr(1000)</span> <span class="pre">=</span> <span class="pre">'Ϩ'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ord(x)</p></td>
+<td><p>返回字符<code class="docutils literal notranslate"><span class="pre">x</span></code>对应的 Unicode 编码，如<code class="docutils literal notranslate"><span class="pre">ord('Ϩ')</span> <span class="pre">=</span> <span class="pre">1000</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>str.lower() 或 str.upper()</p></td>
+<td><p>返回字符串的副本，全部字符小写/大写,如 <code class="docutils literal notranslate"><span class="pre">'AbCd'.lower()</span> <span class="pre">=</span> <span class="pre">'abcd'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>str.split(sep=None)</p></td>
+<td><p>返回一个列表，由<code class="docutils literal notranslate"><span class="pre">str</span></code>根据<code class="docutils literal notranslate"><span class="pre">sep</span></code>被分隔的部分组，如<code class="docutils literal notranslate"><span class="pre">'a,b,c'.split(',')</span> <span class="pre">=</span> <span class="pre">['a','b','c']</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>str.count(sub)</p></td>
+<td><p>返回子串<code class="docutils literal notranslate"><span class="pre">sub</span></code>在<code class="docutils literal notranslate"><span class="pre">str</span></code>中出现的次数，如<code class="docutils literal notranslate"><span class="pre">'abca'.count('a')</span> <span class="pre">=</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>str.replace(old, new)</p></td>
+<td><p>返回字符串<code class="docutils literal notranslate"><span class="pre">str</span></code>副本，所有<code class="docutils literal notranslate"><span class="pre">old</span></code>子串被替换为<code class="docutils literal notranslate"><span class="pre">new</span></code>，如<code class="docutils literal notranslate"><span class="pre">'abc'.replace('a',</span> <span class="pre">'ab')</span> <span class="pre">=</span> <span class="pre">'abbc'</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="列表（list）">
+<h3>列表（list）<a class="headerlink" href="#列表（list）" title="永久链接至标题">¶</a></h3>
+<p>列表是一种序列类型，创建后可以随意被修改。使用方括号<code class="docutils literal notranslate"><span class="pre">[]</span></code>或<code class="docutils literal notranslate"><span class="pre">list()</span></code>创建，元素间用逗号<code class="docutils literal notranslate"><span class="pre">,</span></code>分隔。列表中各元素类型可以不同，无长度限制。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">123</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;abc&#39;, 123]
+[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]
+</pre></div></div>
+</div>
+<p>列表继承序列类型的函数和方法，但也具有独有的函数和方法：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数和方法</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>list.append(x)</p></td>
+<td><p>在<code class="docutils literal notranslate"><span class="pre">list</span></code>最后增加一个元素<code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>list.clear()</p></td>
+<td><p>删除<code class="docutils literal notranslate"><span class="pre">list</span></code>中所有元素</p></td>
+</tr>
+<tr class="row-even"><td><p>list.copy()</p></td>
+<td><p>复制<code class="docutils literal notranslate"><span class="pre">list</span></code>，并生成一个新列表</p></td>
+</tr>
+<tr class="row-odd"><td><p>list.inerst(i,x)</p></td>
+<td><p>在<code class="docutils literal notranslate"><span class="pre">list</span></code>的第<code class="docutils literal notranslate"><span class="pre">i</span></code>位置增加元素<code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>list.pop(i)</p></td>
+<td><p>返回<code class="docutils literal notranslate"><span class="pre">list</span></code>中第<code class="docutils literal notranslate"><span class="pre">i</span></code>位置元素，并在<code class="docutils literal notranslate"><span class="pre">list</span></code>中删除该元素</p></td>
+</tr>
+<tr class="row-odd"><td><p>list.remove(x)</p></td>
+<td><p>删除<code class="docutils literal notranslate"><span class="pre">list</span></code>出现的第一个元素<code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>list.reverse()</p></td>
+<td><p>颠倒<code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="元组（tuple）">
+<h3>元组（tuple）<a class="headerlink" href="#元组（tuple）" title="永久链接至标题">¶</a></h3>
+<p>元组是一种序列类型，一旦创建就不能被修。使用小括号<code class="docutils literal notranslate"><span class="pre">()</span></code>或<code class="docutils literal notranslate"><span class="pre">tuple()</span></code>创建，元素间用逗号<code class="docutils literal notranslate"><span class="pre">,</span></code>分隔。可以使用或不使用小括号</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="mi">123</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(&#39;abc&#39;, 123)
+</pre></div>
+</div>
+</div>
+<p>元组继承了序列类型的全部通用操作，因为创建后不能修改，因此没有特殊操作。</p>
+</div>
+<div class="section" id="字典（dict）">
+<h3>字典（dict）<a class="headerlink" href="#字典（dict）" title="永久链接至标题">¶</a></h3>
+<p>字典是一种储存键值对的数据类型，键值对之间无序。通过大括号<code class="docutils literal notranslate"><span class="pre">{}</span></code>和<code class="docutils literal notranslate"><span class="pre">dict()</span></code>创建，键值对用冒号<code class="docutils literal notranslate"><span class="pre">:</span></code>表示。在字典变量中，通过键获得值。</p>
+<p>键（keys）可以看做索引的扩展，值（values）储存数据。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x =&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x[&#39;a&#39;] =&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+x[&#39;a&#39;] = 1
+</pre></div></div>
+</div>
+<p>字典类型操作函数和方法</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数和方法</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dict.keys()</p></td>
+<td><p>返回<code class="docutils literal notranslate"><span class="pre">dict</span></code>中所有键信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>dict.values()</p></td>
+<td><p>返回<code class="docutils literal notranslate"><span class="pre">dict</span></code>中所有值信息</p></td>
+</tr>
+<tr class="row-even"><td><p>dict.items()</p></td>
+<td><p>返回<code class="docutils literal notranslate"><span class="pre">dict</span></code>中所有键值对信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>dict.get(k, x)</p></td>
+<td><p>若键<code class="docutils literal notranslate"><span class="pre">k</span></code>存在，则返回对应的值，否则返回<code class="docutils literal notranslate"><span class="pre">x</span></code>值</p></td>
+</tr>
+<tr class="row-even"><td><p>dict.pop(k, x)</p></td>
+<td><p>若键<code class="docutils literal notranslate"><span class="pre">k</span></code>存在，则取出对应的值，否则返回<code class="docutils literal notranslate"><span class="pre">x</span></code>值</p></td>
+</tr>
+<tr class="row-odd"><td><p>dict.popitem()</p></td>
+<td><p>从<code class="docutils literal notranslate"><span class="pre">dict</span></code>随机取出一个键值对，以元组形式返回</p></td>
+</tr>
+<tr class="row-even"><td><p>dict.clear()</p></td>
+<td><p>删除<code class="docutils literal notranslate"><span class="pre">dict</span></code>所有键值对</p></td>
+</tr>
+<tr class="row-odd"><td><p>len(dict)</p></td>
+<td><p>返回<code class="docutils literal notranslate"><span class="pre">dice</span></code>中元素个数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="集合（set）">
+<h3>集合（set）<a class="headerlink" href="#集合（set）" title="永久链接至标题">¶</a></h3>
+<p>Python 的集合类型与数学中的集合概念一致，是多个元素的无序组合。元素与元素间无序，不存在相同元素。集合中的元素不可更改，不能使可变数据类型。</p>
+<p>集合通过大括号<code class="docutils literal notranslate"><span class="pre">{}</span></code>或<code class="docutils literal notranslate"><span class="pre">set()</span></code>创建，元素间用逗号<code class="docutils literal notranslate"><span class="pre">,</span></code>分割，创建空集合必须使用<code class="docutils literal notranslate"><span class="pre">set()</span></code>方法。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">}</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>{1, 10, &#39;a&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="函数">
+<h2>函数<a class="headerlink" href="#函数" title="永久链接至标题">¶</a></h2>
+<div class="section" id="函数（function）">
+<h3>函数（function）<a class="headerlink" href="#函数（function）" title="永久链接至标题">¶</a></h3>
+<p>函数是一段具有特定功能的、可重用的语句组，是一种功能的抽象。</p>
+<p>在 Python 中通过<code class="docutils literal notranslate"><span class="pre">def</span></code>构建函数，格式如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>def &lt;函数名&gt;(&lt;参数(0或多个)&gt;):
+    &lt;函数体&gt;
+    return &lt;返回值&gt;
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 计算斐波那契数列</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 第10个斐波那契数</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>55
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="参考资料">
+<h2>参考资料<a class="headerlink" href="#参考资料" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/zh-cn/3/">Python 官方中文文档</a></p></li>
+<li><p><a class="reference external" href="https://www.icourse163.org/course/BIT-268001?tid=1003243006">北京理工大学：Python语言程序设计</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020-2021
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
